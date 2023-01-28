@@ -1,9 +1,9 @@
-import './App.css';
 import React from 'react'
 import Navbar from './Navbar';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Create from './Create';
+import BlogDetail from './BlogDetail';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Routes>
             <Route exact path= "/" element= {<Home/>}></Route>
             <Route path= "/create" element= {<Create/>}></Route>
+            <Route path= "/blog/:id" element= {<BlogDetail/>}></Route>
             </Routes>
         </div>
       </div>
