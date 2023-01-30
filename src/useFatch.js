@@ -3,12 +3,7 @@ import { useState, useEffect } from "react";
 const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState(null);
-
-    const handleDelete = (id) => {   
-        const newBlogs = data.filter(blog => blog.id !== id);
-        setData(newBlogs)
-      } 
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         setTimeout(() => {
@@ -31,7 +26,7 @@ const useFetch = (url) => {
         }, 1000)
     }, [url]);
 
-    return {data, isPending, error, handleDelete}
+    return {data, isPending, error}
 }
 
 export default useFetch;

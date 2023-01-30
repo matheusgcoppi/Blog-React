@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {  useNavigate } from "react-router-dom"
 
 
 const Create = () => {
@@ -7,6 +8,8 @@ const Create = () => {
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('Mario')
     const [isPending, setIsPending] = useState(false)
+    let navigate =  useNavigate();
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +24,8 @@ const Create = () => {
         }).then(() => {
             console.log("New Blog added")    
             setIsPending(false);  
-        })      
+        })        
+        navigate('/');
     }
 
 
@@ -42,7 +46,7 @@ const Create = () => {
                 <option value="Yoshi">Yoshi</option>
                 <option value="David">David</option>
             </select>
-            { isPending && <p> testeee </p>}
+            
             { !isPending && <button>Add Blog</button> }
             { isPending && <button disabled>Adding Blog...</button> }
             <p>{ title }</p>
